@@ -6,13 +6,15 @@
 /*   By: magoumi <magoumi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:59:58 by magoumi           #+#    #+#             */
-/*   Updated: 2022/02/28 19:01:25 by magoumi          ###   ########.fr       */
+/*   Updated: 2022/02/28 19:27:44 by magoumi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //
 // Created by magoumi on 28/2/2022.
 //
+#ifndef __PHONEBOOK__
+#define __PHONEBOOK__
 #include "Contact.hpp"
 
 class PhoneBook
@@ -35,3 +37,5 @@ class PhoneBook
 		void	save();
 		void	search();
 };
+
+#endif

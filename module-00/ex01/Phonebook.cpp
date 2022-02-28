@@ -6,7 +6,7 @@
 /*   By: magoumi <magoumi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:00:16 by magoumi           #+#    #+#             */
-/*   Updated: 2022/02/28 19:01:30 by magoumi          ###   ########.fr       */
+/*   Updated: 2022/02/28 19:47:02 by magoumi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,27 @@ int		PhoneBook::readCommand()
 void	PhoneBook::save()
 {
 	phone[index] = new Contact;
+	std::string readLine;
 	std::cout << GREEN + "Enter First Name   : " + YELLOW;
-	std::getline (std::cin,phone[index]->firstName);
+	std::getline (std::cin, readLine);
+	phone[index]->setFirstName(readLine);
+	
 	std::cout << GREEN + "Enter Last Name    : " + YELLOW;
-	std::getline (std::cin,phone[index]->lastName);
+	std::getline (std::cin,readLine);
+	phone[index]->setLastName(readLine);
+	
 	std::cout << GREEN + "Enter Nickname     : " + YELLOW;
-	std::getline (std::cin,phone[index]->nickname);
+	std::getline (std::cin, readLine);
+	phone[index]->setNickname(readLine);
+
 	std::cout << GREEN + "Enter Phone Number : " + YELLOW;
-	std::getline (std::cin,phone[index]->phoneNumber);
+	std::getline (std::cin, readLine);
+	phone[index]->setPhoneNumber(readLine);
+	
 	std::cout << GREEN + "Enter Dark Secret  : " + YELLOW;
-	std::getline (std::cin,phone[index]->darkSecret);
+	std::getline (std::cin, readLine);
+	phone[index]->setDarkSecret(readLine);
+	
 	std::cout << RESET;
 
 	if (++index == 8)
@@ -139,6 +150,57 @@ std::string Contact::displayDetailed()
 
 	return output;
 }
+
+std::string Contact::getFirstName()
+{
+	return firstName;
+}
+
+std::string Contact::getLastName()
+{
+	return lastName;
+}
+
+std::string Contact::getNickname()
+{
+	return nickname;
+}
+
+std::string Contact::getPhoneNumber()
+{
+	return phoneNumber;
+}
+
+std::string Contact::getDarkSecret()
+{
+	return darkSecret;
+}
+
+void		Contact::setFirstName(std::string name)
+{
+	firstName = name;
+}
+
+void		Contact::setLastName(std::string name)
+{
+	lastName = name;
+}
+
+void		Contact::setNickname(std::string name)
+{
+	nickname = name;
+}
+
+void		Contact::setPhoneNumber(std::string phone)
+{
+	phoneNumber = phone;
+}
+
+void		Contact::setDarkSecret(std::string secret)
+{
+	darkSecret = secret;
+}
+
 std::string Contact::truncate(std::string str)
 {
 	std::string truncatedString = "";
@@ -161,7 +223,6 @@ std::string Contact::truncate(std::string str)
 
 int			main()
 {
-	std::string  phones[8];
     int		command = 1;
 	PhoneBook *phone;
 
